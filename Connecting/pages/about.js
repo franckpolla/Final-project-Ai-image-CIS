@@ -2,8 +2,52 @@ import React from "react";
 import { Header } from "../Components/index.js";
 import Footer from "../Components/Global/Footer.jsx";
 
+import hauwa2 from "../aboutUs/hawa2.png";
+import destiny2 from "../aboutUs/destiny2.png";
+import franck from "../aboutUs/franck.png";
+import neo2 from "../aboutUs/neo.png";
+
 import AboutCom from "../Components/Global/aboutCom.jsx";
 const about = () => {
+  const AboutUs = [
+    {
+      image: destiny2,
+      title: "Destiny Osakpolor Omosigho",
+      role: " ",
+      linkdin:
+        "https://www.linkedin.com/in/destiny-omosigho-998320295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app  ",
+      email: "omosighodestiny123@gmail.com",
+      description: "",
+    },
+
+    {
+      image: neo2,
+      title: " OGBEIDE NEO EHIMARE",
+      role: " ",
+      linkdin: "http://www.linkedin.com/in/max-neo-22a749339 ",
+      email: "Maxneo1010@gmail.com",
+      description: "",
+    },
+    {
+      image: hauwa2,
+      title: "Hauwa Wakil adamu ",
+      role: " ",
+      linkdin:
+        "https://www.linkedin.com/in/destiny-omosigho-998320295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app  ",
+      email: "Hauwawakeeel@gmail.com",
+      description: "",
+    },
+    {
+      image: franck,
+      title: "Franck polla Tekam ",
+      role: "Full stack developer  ",
+      linkdin: "https://www.linkedin.com/in/franck-polla-ba9976288/ ",
+      email: "fpolla640@gmail.com",
+      description:
+        "I've been working in the tech industry for over 15 years, focusing primarily on AI and machine learning. I'm passionate about breaking down complex problems and creating innovative solutions. My goal is to help people unlock their full potential and make a positive impact on the world.",
+    },
+  ];
+  console.log("this is th", destiny2);
   return (
     <div>
       <Header />
@@ -38,11 +82,17 @@ const about = () => {
         <div></div>
 
         <div className=" w-96 flex flex-col md:flex-row gap-4 p-4">
-          <AboutCom />
-          <AboutCom />
-          <AboutCom />
-          <AboutCom />
-          <AboutCom />
+          {AboutUs.map((item) => (
+            <AboutCom
+              key={item.title}
+              image={item.image}
+              role={item.role}
+              title={item.title}
+              linkdin={item.linkdin}
+              email={item.email}
+              description={item.description}
+            />
+          ))}
         </div>
       </div>
       <Footer />
