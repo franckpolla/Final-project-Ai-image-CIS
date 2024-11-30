@@ -120,7 +120,7 @@ const Auth = () => {
       style={{ pointerEvents: "auto" }}
     >
       <div
-        className="bg-zinc-800 opacity-90 items-center fixed shadow-xl rounded-2xl z-50 px-8 py-8 text-sm border border-zinc-700"
+        className=" bg-zinc-800 opacity-0 items-center fixed shadow-xl rounded-2xl z-50 px-8 py-8 text-sm border border-zinc-700"
         style={{
           top: "50%",
           transform: "translate(-50%,-50%)",

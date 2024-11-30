@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className="h-screen w-full overflow-hidden bg-gray-200">
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-1 h-full">
+      <div className="hidden   md:grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-1 h-full">
         {getVisibleImages().map((item, index) => (
           <div
             key={index}

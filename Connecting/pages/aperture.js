@@ -140,7 +140,7 @@ const aperture = () => {
           <div className="w-screen overflow-x-hidden">
             <div className="flex items-center justify-center w-full mt-8 md:mt-10">
               <div className="px-2 md:px-10 lg:px-16 flex items-center flex-col max-w-[1300px] w-full">
-                <div className="w-full flex flex-col md:flex-row">
+                <div className="w-full flex gap-4 flex-col md:flex-row">
                   <Prompt
                     promptv3={promptv3}
                     setPromptv3={setPromptv3}

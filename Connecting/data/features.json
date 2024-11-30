@@ -1,16 +1,17 @@
 [
+  
   {
-    "plan": "Max plan",
-    "price": "$50",
-    "type": "400 credits",
-    "billing": "Model V2",
+    "plan": "Starter plan",
+    "price": "$10",
+    "type": "60 credits",
+    "billing": "Model V2 ",
     "monthly": " Get credit anytime",
-    "annualy": "Save with Max plan (20%)",
+    "annualy": "Save with Max plan (0%)",
     "generateAmount": "7,000",
     "generateTitle": "fast generations per minutes",
     "service": "Unlimited",
     "serviceTitle": "slow generations",
-    "link": "https://buy.stripe.com/test_3cs28T1qdciN1QQeUX",
+    "link": "https://buy.stripe.com/test_cN214Pc4R0A5brqaEG",
     "features": [
       {
         "item": "3 concurrent fast jobs"
@@ -64,19 +65,19 @@
         "item": "Early access to new model"
       }
     ]
-  },
-  {
-    "plan": "Starter plan",
-    "price": "$10",
-    "type": "60 credits",
-    "billing": "Model V2 ",
+  }
+  , {
+    "plan": "Max plan",
+    "price": "$50",
+    "type": "400 credits",
+    "billing": "Model V2",
     "monthly": " Get credit anytime",
-    "annualy": "Save with Max plan (0%)",
+    "annualy": "Save with Max plan (20%)",
     "generateAmount": "7,000",
     "generateTitle": "fast generations per minutes",
     "service": "Unlimited",
     "serviceTitle": "slow generations",
-    "link": "https://buy.stripe.com/test_cN214Pc4R0A5brqaEG",
+    "link": "https://buy.stripe.com/test_3cs28T1qdciN1QQeUX",
     "features": [
       {
         "item": "3 concurrent fast jobs"
