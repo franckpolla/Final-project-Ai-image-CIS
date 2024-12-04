@@ -106,7 +106,7 @@ const History = () => {
               href="/history"
               className="text-5xl sm:text-6xl md:text-7xl mb-8 font-logo font-bold mt-0 text-center"
             >
-              History
+              Gallery
             </a>
 
             <div className="flex items-center justify-center w-full max-w-[500px] px-4 pl-5 md:px-5">

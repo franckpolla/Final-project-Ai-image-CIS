@@ -18,7 +18,7 @@ const about = () => {
       linkdin: "http://www.linkedin.com/in/hakim-nasser-ngounouno-2180bb282  ",
       email: "hakimngounouno@gmail.com",
       description:
-        "I've been working in the tech industry for a year, focusing primarily on AI and machine learning. I'm passionate about breaking down complex problems and creating innovative solutions.",
+        "As a budding professional, I am passionate about the web and digital world. I am eager to lead a team, leveraging my enthusiasm to foster collaboration while acquiring new knowledge and experience.",
     },
     {
       image: franck,
@@ -36,28 +36,30 @@ const about = () => {
       role: "Business Analyst ",
       linkdin: "http://www.linkedin.com/in/max-neo-22a749339 ",
       email: "Maxneo1010@gmail.com",
-      description: "",
+      description:
+        "Been working with stakeholders to understand the specific needs of the business regarding AI image generation. And ensuring that AI image generation tools align with organizational goals and provide value.",
     },
     {
       image: hauwa2,
       title: "Hauwa Wakil adamu ",
-      role: "Content Writer ",
+      role: "Technical Writer ",
       linkdin:
         "https://www.linkedin.com/in/destiny-omosigho-998320295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app  ",
       email: "Hauwawakeeel@gmail.com",
-      description: "",
+      description:
+        "I create clear, concise documentation and user guides to explain complex technical information for diverse audiences. i collaborate with developers and product teams to produce manualsand digital content.",
     },
     {
       image: destiny2,
-      title: "Destiny Osakpolor Omosigho",
+      title: "Destiny Osakpolor ",
       role: " Content writer ",
       linkdin:
         "https://www.linkedin.com/in/destiny-omosigho-998320295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app  ",
       email: "omosighodestiny123@gmail.com",
-      description: "",
+      description:
+        "I've been working in the tech industry and creative space for quite some time now, specializing in designing visually appealing and user-friendly interfaces for digital products, including websites, apps and software.",
     },
   ];
-  console.log("this is th", destiny2);
   return (
     <div>
       <Header />

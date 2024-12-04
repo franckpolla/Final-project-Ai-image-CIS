@@ -96,7 +96,7 @@ const Prompt = ({
         ) : (
           <div
             style={{ cursor: "pointer" }}
-            className="transition-all"
+            className="transition-all "
             onClick={generateFunction}
           >
             <button

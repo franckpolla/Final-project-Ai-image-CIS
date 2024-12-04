@@ -62,20 +62,12 @@ const ImageCardHomePage = ({ item, setSingleID, activeUser }) => {
           </div>
         </a>
         <div
-          className="absolute top-0 left-0 right-0
+          className="absolute top-0  right-0
         p-2 flex z-10 text-zinc-100 justify-between pointer-events-none opacity-0
         group-hover:opacity-100 transition-opacity text-sm
         "
         >
-          <a
-            className="bg-zinc-900 bg-opacity-50 hover:bg-opacity-100
-         transition-opacity flex items-center justify-center pointer-events-auto
-         cursor-pointer text-lg h-10 w-10 rounded-lg
-         "
-          >
-            <ImgSearch />
-          </a>
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col left-4  space-y-2">
             {item?.likes.includes(activeUser?._id) ? (
               <button
                 className="bg-zinc-900 bg-opacity-70
@@ -104,7 +96,22 @@ pointer-events-auto cursor-pointer  transition-opacity
 rounded-lg text-lg h-10 w-10
 "
             >
-              <Magic />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-info"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4" />
+                <path d="M12 8h.01" />
+              </svg>
             </button>
           </div>
         </div>

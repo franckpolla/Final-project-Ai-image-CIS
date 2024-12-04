@@ -140,7 +140,14 @@ const aperture = () => {
           <div className="w-screen overflow-x-hidden">
             <div className="flex items-center justify-center w-full mt-8 md:mt-10">
               <div className="px-2 md:px-10 lg:px-16 flex items-center flex-col max-w-[1300px] w-full">
-                <div className="w-full flex gap-4 flex-col md:flex-row">
+                <div className="w-full flex gap-4 flex-col md:flex-row ">
+                  <PromptInput
+                    promptv3={promptv3}
+                    setPromptv3={setPromptv3}
+                    loader={loader}
+                    error={error}
+                    activeUser={activeUser}
+                  />
                   <Prompt
                     promptv3={promptv3}
                     setPromptv3={setPromptv3}
@@ -149,22 +156,16 @@ const aperture = () => {
                     activeUser={activeUser}
                     generateFunction={() => CLICK_V3(promptv3)}
                   />
-                  <PromptInput
-                    promptv3={promptv3}
-                    setPromptv3={setPromptv3}
-                    loader={loader}
-                    error={error}
-                    activeUser={activeUser}
-                  />
                 </div>
 
                 <div
                   className="items-center w-full max-w-[800px] mt-8 px-4 pl-5 md:px-5"
                   style={{ minHeight: "1px", position: "relative" }}
                 >
-                  <div></div>
+                  <div>
+                    <Subscription activeUser={activeUser} />
+                  </div>
                 </div>
-                <Subscription activeUser={activeUser} />
               </div>
             </div>
             {/* Body */}

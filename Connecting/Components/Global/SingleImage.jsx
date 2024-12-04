@@ -47,9 +47,6 @@ const SingleImage = ({ singleID, setSingleID }) => {
   const [isPromptCopied, setIsPromptCopied] = useState(false);
   const [isUrlCopied, setIsUrlCopied] = useState(false);
 
-  console.log("this is DOMAIN_URL", DOMAIN_URL);
-
-  console.log("this is DOMAIN", DOMAIN);
   const AI_IMAGE_DOWNLOAD = (image) => {
     let url = `${DOMAIN_URL}${image}`;
     saveAs(url, `${DOMAIN}-${image}`);
@@ -91,23 +88,6 @@ const SingleImage = ({ singleID, setSingleID }) => {
     }
   };
 
-  const CALLING_DELETE = async (postID) => {
-    try {
-      console.log("this is the active user in the imageCard ", activeUser);
-
-      if (postDetail.user._id !== activeUser._id) {
-        return alert("Only the Owner of this image can delete  it");
-      }
-      setLoader(true);
-      const response = await DELETE_POST(postID);
-      if (response) {
-        window.location.reload();
-      }
-    } catch (error) {
-      setLoader(false);
-      console.error(error.message);
-    }
-  };
   const CALLING_USER_INFO = async (postID) => {
     try {
       if (postID) {
@@ -123,10 +103,7 @@ const SingleImage = ({ singleID, setSingleID }) => {
         const user = await CHECK_AUTH_USER();
         setActiveUser(user);
         console.log("user ", user);
-        if (response?.post._id == user._id) {
-          setDeletePost(true);
-          console.log("delete post ", deletePost);
-        }
+
         if (response?.post.likes.includes(user._id)) {
           setLike(true);
         } else {
@@ -139,6 +116,24 @@ const SingleImage = ({ singleID, setSingleID }) => {
     }
   };
 
+  const CALLING_DELETE = async (postID) => {
+    try {
+      console.log("this is the active user in the imageCard ", activeUser);
+
+      console.log("this is the post detail ", postDetail);
+      if (postDetail.user !== activeUser._id) {
+        return alert("Only the Owner of this image can delete  it");
+      }
+      setLoader(true);
+      const response = await DELETE_POST(postID);
+      if (response) {
+        window.location.reload();
+      }
+    } catch (error) {
+      setLoader(false);
+      console.error(error.message);
+    }
+  };
   useEffect(() => {
     CALLING_USER_INFO(singleID);
   }, [reCall]);
@@ -163,7 +158,7 @@ const SingleImage = ({ singleID, setSingleID }) => {
       </div>
       <div
         className="single-scroll flex flex-col
-      bg-zinc-800 drop-shadow-xl overflow-hidden rounded-xl border border-zinc-700
+      bg-blue-900 drop-shadow-xl overflow-hidden rounded-xl border border-zinc-700
       box-content 
       "
       >
@@ -243,7 +238,7 @@ h-auto "
               "
               >
                 <Magic2 />
-                Open Creator
+                Generate new Images
               </a>
               <a
                 href="/history"
@@ -281,24 +276,26 @@ h-auto "
                 <div className="text-xs opacity-50">Style</div>
                 <div className="text-sm"> {postDetail?.style}</div>
               </div>
-              <div>
+              {/* <div>
                 <div className="text-xs opacity-50">Creator</div>
                 <div className="text-sm"> {postDetail?.user}</div>
-              </div>
-              <h2 className="font-medium pt-8"> Share on social media </h2>
-              <div className="flex gap-4">
-                <FacebookShareButton url={`${DOMAIN_URL}${selectedImage}`}>
-                  <FacebookIcon size={32} round={true} />
-                </FacebookShareButton>
-                <EmailShareButton url={`${DOMAIN_URL}${selectedImage}`}>
-                  <EmailIcon size={32} round={true} />
-                </EmailShareButton>
-                <WhatsappShareButton url={`${DOMAIN_URL}${selectedImage}`}>
-                  <WhatsappIcon size={32} round={true} />
-                </WhatsappShareButton>
-                <TwitterShareButton url={`${DOMAIN_URL}${selectedImage}`}>
-                  <TwitterIcon size={32} round={true} />
-                </TwitterShareButton>
+              </div> */}
+              <div className="flex  flex-col">
+                <h2 className="font-medium py-4"> Share on social media </h2>
+                <div className="flex gap-4 ">
+                  <FacebookShareButton url={`${DOMAIN_URL}${selectedImage}`}>
+                    <FacebookIcon size={32} round={true} />
+                  </FacebookShareButton>
+                  <EmailShareButton url={`${DOMAIN_URL}${selectedImage}`}>
+                    <EmailIcon size={32} round={true} />
+                  </EmailShareButton>
+                  <WhatsappShareButton url={`${DOMAIN_URL}${selectedImage}`}>
+                    <WhatsappIcon size={32} round={true} />
+                  </WhatsappShareButton>
+                  <TwitterShareButton url={`${DOMAIN_URL}${selectedImage}`}>
+                    <TwitterIcon size={32} round={true} />
+                  </TwitterShareButton>
+                </div>
               </div>
             </div>
           </div>
@@ -333,7 +330,7 @@ h-auto "
                         }
                       >
                         {like ? (
-                          <FaHeart className="text-red-500 text-2xl px-4" />
+                          <FaHeart className="text-2xl" color="red" />
                         ) : (
                           <FaRegHeart className="text-xl" />
                         )}

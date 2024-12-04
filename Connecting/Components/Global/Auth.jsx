@@ -120,7 +120,7 @@ const Auth = () => {
       style={{ pointerEvents: "auto" }}
     >
       <div
-        className=" bg-zinc-800 opacity-0 items-center fixed shadow-xl rounded-2xl z-50 px-8 py-8 text-sm border border-zinc-700"
+        className="bg-blue-500 opacity-90 items-center fixed shadow-xl rounded-2xl z-50 px-8 py-8 text-sm border border-zinc-700"
         style={{
           top: "50%",
           transform: "translate(-50%,-50%)",
@@ -137,7 +137,7 @@ const Auth = () => {
             {auth ? (
               <div style={{ marginTop: "1rem" }}>
                 <input
-                  className="bg-zinc-700 text-zinc-200 rounded-lg p-2 w-full mb-3"
+                  className="bg-zinc-900 text-zinc-200 rounded-lg p-2 w-full mb-3"
                   placeholder="Email address"
                   required
                   type="email"
@@ -146,7 +146,7 @@ const Auth = () => {
                   }
                 />
                 <input
-                  className="bg-zinc-700 text-zinc-200 rounded-lg p-2 w-full mb-3"
+                  className="bg-zinc-900 text-zinc-200 rounded-lg p-2 w-full mb-3"
                   placeholder="Password"
                   type="password"
                   required
@@ -166,7 +166,7 @@ const Auth = () => {
             ) : (
               <div style={{ marginTop: "1rem" }}>
                 <input
-                  className="bg-zinc-700 text-zinc-200 rounded-lg p-2 w-full mb-3"
+                  className="bg-zinc-900 text-zinc-200 rounded-lg p-2 w-full mb-3"
                   placeholder="Name"
                   type="text"
                   required
@@ -175,7 +175,7 @@ const Auth = () => {
                   }
                 />
                 <input
-                  className="bg-zinc-700 text-zinc-200 rounded-lg p-2 w-full mb-3"
+                  className="bg-zinc-900 text-zinc-200 rounded-lg p-2 w-full mb-3"
                   placeholder="Email address"
                   type="email"
                   required
@@ -184,7 +184,7 @@ const Auth = () => {
                   }
                 />
                 <input
-                  className="bg-zinc-700 text-zinc-200 rounded-lg p-2 w-full mb-1"
+                  className="bg-zinc-900 text-zinc-200 rounded-lg p-2 w-full mb-1"
                   placeholder="Password"
                   type="password"
                   required
@@ -194,7 +194,7 @@ const Auth = () => {
                 />
                 <PasswordStrengthMeter password={signUp.password} />
                 <input
-                  className="bg-zinc-700 text-zinc-200 rounded-lg p-2 w-full mb-3 mt-3"
+                  className="bg-zinc-800 text-zinc-200 rounded-lg p-2 w-full mb-3 mt-3"
                   placeholder="Confirm Password"
                   type="password"
                   required
@@ -218,7 +218,7 @@ const Auth = () => {
 
             <button
               onClick={() => setAuth(!auth)}
-              className="mt-4 text-indigo-400 hover:text-indigo-300"
+              className="mt-4 text-white hover:text-indigo-300"
             >
               {auth
                 ? "Need an account? Sign up"

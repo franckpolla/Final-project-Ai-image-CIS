@@ -314,7 +314,6 @@ const Index = () => {
               {Object.values(CATEGORIES).map((categoryName) => (
                 <Button
                   key={categoryName}
-                  icon={<BsCameraReelsFill />}
                   name={categoryName}
                   handleClick={() => changeCategory(categoryName)}
                   category={category}

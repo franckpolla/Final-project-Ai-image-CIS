@@ -24,6 +24,7 @@ const CATEGORIES = {
 const Likes = () => {
   const [category, setCategory] = useState(CATEGORIES.REEL);
   const [activeUser, setActiveUser] = useState(null);
+  const [singleID, setSingleID] = useState("");
   const [imagesBySize, setImagesBySize] = useState({
     [IMAGE_SIZES.REEL]: [],
     [IMAGE_SIZES.INSTAGRAM]: [],
@@ -136,6 +137,7 @@ const Likes = () => {
                           <ImageCard
                             key={image._id}
                             item={image}
+                            setSingleID={setSingleID}
                             activeUser={activeUser}
                           />
                         ))
@@ -157,7 +159,9 @@ const Likes = () => {
           </div>
         </div>
       </div>
-
+      {singleID && (
+        <SingleImage singleID={singleID} setSingleID={setSingleID} />
+      )}
       <div style={{ marginTop: "6rem" }}>
         <Footer />
       </div>

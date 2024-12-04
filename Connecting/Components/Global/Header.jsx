@@ -29,7 +29,7 @@ const Header = () => {
       link: "/aperture",
     },
     {
-      menu: "History",
+      menu: "Gallery",
       link: "/history",
     },
     {
@@ -117,7 +117,7 @@ const Header = () => {
                     <Home />
                   ) : item.menu === "Generate" ? (
                     <Generate />
-                  ) : item.menu === "History" ? (
+                  ) : item.menu === "Gallery" ? (
                     <History />
                   ) : item.menu === "Favorite" ? (
                     <Likes />
