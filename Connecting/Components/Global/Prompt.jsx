@@ -1,14 +1,7 @@
 import React from "react";
 import Loader from "./Loader";
 
-const Prompt = ({
-  promptv3,
-  setPromptv3,
-  loader,
-  error,
-  activeUser,
-  generateFunction,
-}) => {
+const Prompt = ({ promptv3, setPromptv3 }) => {
   const reload = () => {
     window.location.reload();
   };
@@ -63,51 +56,6 @@ const Prompt = ({
           setPromptv3({ ...promptv3, negativePrompt: e.target.value });
         }}
       />
-      <div className="w-full flex items-center justify-center md:justify-end mt-4 space-x-4">
-        {activeUser?.credit == 0 ? (
-          <div style={{ cursor: "pointer" }} className="transition-all">
-            <a
-              href="/account"
-              className="text-sm text-white bg-gradient-to-t from-indigo-800
-            via-indigo-600 to-indigo-500 rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70
-             "
-            >
-              Buy Credit
-            </a>
-          </div>
-        ) : loader ? (
-          <div className="transition-all ">
-            <button
-              className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
-            rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70 cursor-default"
-            >
-              <Loader />
-            </button>
-          </div>
-        ) : error ? (
-          <div style={{ cursor: "pointer" }} onClick={() => reload()}>
-            <button
-              className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
-            rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70 cursor-default"
-            >
-              {error} - Click to Refresh
-            </button>
-          </div>
-        ) : (
-          <div
-            style={{ cursor: "pointer" }}
-            className="transition-all "
-            onClick={generateFunction}
-          >
-            <button
-              className="text-sm bg-gradient-to-t from-indigo-700 via-indigo-700 to-indigo-500  
-            rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70 cursor-pointer"
-            >
-              Generate
-            </button>
-          </div>
-        )}
-      </div>
     </div>
   );
 };

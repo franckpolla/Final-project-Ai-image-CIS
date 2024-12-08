@@ -157,10 +157,10 @@ const SingleImage = ({ singleID, setSingleID }) => {
         <Close />
       </div>
       <div
+        style={{ background: "#318CE7" }}
         className="single-scroll flex flex-col
-      bg-blue-900 drop-shadow-xl overflow-hidden rounded-xl border border-zinc-700
-      box-content 
-      "
+   drop-shadow-xl overflow-hidden rounded-xl border border-zinc-700
+      box-content"
       >
         <div className="flex w-full h-full sel-stretch flex-col md:flex-row pb-16 md:pb-0  md:pt-0 flex-1">
           <div
@@ -246,7 +246,6 @@ h-auto "
           group mt-4 whitespace-nowrap flex-1 flex select-none cursor-pointer
           hover:brightness-110 bg-gradient-to-t from-indigo-900 via-indigo-900
           to-indigo-800 drop-shadow items-center justify-center px-2.5 py-2.5 w-fit-content
-          
               "
               >
                 Explore your history
@@ -259,29 +258,34 @@ h-auto "
           sm:pb-8"
             >
               <div>
-                <div className="text-xs opacity-50">Model</div>
+                <div className="text-xs opacity-85">Model</div>
                 <div className="text-sm"> {postDetail?.aimodel}</div>
               </div>
 
               <div>
-                <div className="text-xs opacity-50">Image size</div>
+                <div className="text-xs opacity-85">Image size</div>
                 <div className="text-sm"> {postDetail?.size}</div>
               </div>
 
               <div>
-                <div className="text-xs opacity-50">Quality</div>
+                <div className="text-xs opacity-85">Quality</div>
                 <div className="text-sm"> {postDetail?.quality}</div>
               </div>
               <div>
-                <div className="text-xs opacity-50">Style</div>
+                <div className="text-xs opacity-85">Style</div>
                 <div className="text-sm"> {postDetail?.style}</div>
               </div>
-              {/* <div>
-                <div className="text-xs opacity-50">Creator</div>
-                <div className="text-sm"> {postDetail?.user}</div>
-              </div> */}
+              <div>
+                <div className="text-xs opacity-85">Created </div>
+                <div className="text-sm">
+                  {" "}
+                  {new Date(postDetail?.createdAt).toLocaleDateString()}
+                </div>
+              </div>
               <div className="flex  flex-col">
-                <h2 className="font-medium py-4"> Share on social media </h2>
+                <h2 className="font-medium py-4 opacity-100 text-white">
+                  Share on social media
+                </h2>
                 <div className="flex gap-4 ">
                   <FacebookShareButton url={`${DOMAIN_URL}${selectedImage}`}>
                     <FacebookIcon size={32} round={true} />

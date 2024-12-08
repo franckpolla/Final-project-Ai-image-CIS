@@ -24,6 +24,8 @@ import {
   IMAGE_GENERATOR_V3,
   GET_AI_IMAGES,
 } from "../Utils/index.js";
+
+import Loader from "../Components/Global/Loader.jsx";
 import Footer from "../Components/Global/Footer.jsx";
 const aperture = () => {
   const [loader, setLoader] = useState(false);
@@ -43,6 +45,8 @@ const aperture = () => {
   const [V3_1024x1024, setV3_1024x1024] = useState([]);
   const [V3_1792x1024, setV3_1792x1024] = useState([]);
   const [V3_1024x1792, setV3_1024x1792] = useState([]);
+
+  const [progress, setProgress] = useState(0);
 
   const CLICK_V3 = async (promptv3) => {
     try {
@@ -124,6 +128,19 @@ const aperture = () => {
   useEffect(() => {
     CALLING_ALL_POSTS();
   }, []);
+
+  useEffect(() => {
+    // Simulate progress
+    const interval = setInterval(() => {
+      setProgress((prev) => (prev < 100 ? prev + 10 : 100));
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const reload = () => {
+    window.location.reload();
+  };
   console.log("V3_1024x1024Temp:", V3_1024x1024);
   console.log("V3_1792x1024Temp:", V3_1792x1024);
   console.log("V3_1024x1792Temp:", V3_1024x1792);
@@ -131,6 +148,7 @@ const aperture = () => {
   console.log("calling all images ", allAIImages);
   const arrayRender = [...(allAIImages?.reverse() || [])];
   console.log("array of all images ", arrayRender);
+
   return (
     <div>
       <Header />
@@ -140,22 +158,71 @@ const aperture = () => {
           <div className="w-screen overflow-x-hidden">
             <div className="flex items-center justify-center w-full mt-8 md:mt-10">
               <div className="px-2 md:px-10 lg:px-16 flex items-center flex-col max-w-[1300px] w-full">
-                <div className="w-full flex gap-4 flex-col md:flex-row ">
-                  <PromptInput
-                    promptv3={promptv3}
-                    setPromptv3={setPromptv3}
-                    loader={loader}
-                    error={error}
-                    activeUser={activeUser}
-                  />
+                <div className="w-full relative border border-white p-8 rounded-md flex justify-center gap-4 flex-col ">
                   <Prompt
                     promptv3={promptv3}
                     setPromptv3={setPromptv3}
                     loader={loader}
                     error={error}
                     activeUser={activeUser}
-                    generateFunction={() => CLICK_V3(promptv3)}
                   />
+                  <PromptInput promptv3={promptv3} setPromptv3={setPromptv3} />
+                  <div className="flex items-center  w-full">
+                    <div className="w-full flex items-center justify-center md:justify-end mt-4 space-x-4">
+                      {activeUser?.credit == 0 ? (
+                        <div
+                          style={{ cursor: "pointer" }}
+                          className="transition-all"
+                        >
+                          <a
+                            href="/account"
+                            className="text-sm text-white bg-gradient-to-t from-indigo-800
+            via-indigo-600 to-indigo-500 rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70
+             "
+                          >
+                            Buy Credit
+                          </a>
+                        </div>
+                      ) : loader ? (
+                        <div className="transition-all ">
+                          <button
+                            className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
+            rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70 cursor-default"
+                          >
+                            <Loader />
+                          </button>
+                        </div>
+                      ) : error ? (
+                        <div
+                          style={{ cursor: "pointer" }}
+                          onClick={() => reload()}
+                        >
+                          <button
+                            className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
+            rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70 cursor-default"
+                          >
+                            {error} - Click to Refresh
+                          </button>
+                        </div>
+                      ) : (
+                        <div
+                          style={{ cursor: "pointer", textAlign: "center" }}
+                          className="transition-all flex justify-center items-center"
+                          onClick={() => CLICK_V3(promptv3)}
+                        >
+                          <button
+                            style={{
+                              marginBottom: "20px",
+                            }}
+                            className="text-xl bg-gradient-to-t from-indigo-900 via-indigo-700 to-indigo-500  
+            rounded-full drop-shadow  text-white px-10 py-3 text-center transistion-all opacity-100 cursor-pointer"
+                          >
+                            Generate
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
                 <div
@@ -229,7 +296,7 @@ const aperture = () => {
       {singleID && (
         <SingleImage singleID={singleID} setSingleID={setSingleID} />
       )}
-      {loader && <AIProcessing />}
+      {loader && <AIProcessing progress={progress} />}
     </div>
   );
 };

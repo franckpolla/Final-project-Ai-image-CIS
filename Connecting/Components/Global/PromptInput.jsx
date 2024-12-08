@@ -7,10 +7,10 @@ const PromptInput = ({ promptv3, setV3style, setPromptv3 }) => {
   const [AISizeStyleV3, setAISizeStyleV3] = useState("1792x1024");
 
   return (
-    <div className=" w-full mt-[20px] ml-0 md:ml-8 md:max-w-[300px]">
-      <div className="relative border border-white rounded-lg shadow-md">
-        <div className="px-5 py-4 pb-5">
-          <div className="mb-4 text-xl text-white  opacity-100 select-none">
+    <div className="w-full mt-[5px] md:max-w-[350px]">
+      <div className="relative rounded-lg ">
+        <div className="px-2 py-2">
+          <div className="text-xl text-white  opacity-100 select-none">
             Select features
           </div>
           <div className="flex space-x-2 px-2">
