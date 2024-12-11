@@ -72,7 +72,7 @@ const Button = ({ name, handleClick, category }) => {
         category === name ? activeClasses : inactiveClasses
       }`}
     >
-      <span className="mr-2"> Image shape </span> {icon}
+      <span className="mr-2"> Image Format </span> {icon}
     </button>
   );
 };

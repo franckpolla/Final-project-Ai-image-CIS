@@ -5,9 +5,9 @@ import {
   Header,
   GetStarted,
   Button,
-  ImageCard,
   SingleImage,
 } from "../Components/index.js";
+import ImageCardHomePage from "../Components/Global/imageCardHomePage.jsx";
 import { CHECK_AUTH_USER, GET_AI_IMAGES } from "../Utils/index.js";
 import Footer from "../Components/Global/Footer.jsx";
 const IMAGE_SIZES = {
@@ -20,7 +20,6 @@ const CATEGORIES = {
   INSTAGRAM: "Instagram",
   YOUTUBE: "Youtube",
 };
-
 const Likes = () => {
   const [category, setCategory] = useState(CATEGORIES.REEL);
   const [activeUser, setActiveUser] = useState(null);
@@ -54,6 +53,8 @@ const Likes = () => {
       try {
         const user = await CHECK_AUTH_USER();
         const allImages = await GET_AI_IMAGES();
+
+        console.log("these are all images the images", allImages);
 
         const categorizedImages = {
           [IMAGE_SIZES.REEL]: [],
@@ -134,7 +135,7 @@ const Likes = () => {
                       [...displayedImages]
                         .reverse()
                         .map((image) => (
-                          <ImageCard
+                          <ImageCardHomePage
                             key={image._id}
                             item={image}
                             setSingleID={setSingleID}
