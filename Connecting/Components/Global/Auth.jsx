@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LoginLogo } from "../SVG/index.js";
 import { Loader } from "../index.js";
-
+import ForgotPassword from "../Global/forgotPassword.jsx";
 import { REGISTER_USER, LOGIN_USER } from "../../Utils/index.js";
 
 const PasswordStrengthMeter = ({ password }) => {
@@ -63,6 +63,8 @@ const Auth = () => {
 
   const [showPopUp, setShowPopUp] = useState(false);
 
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+
   const validatePassword = (pwd) => {
     return (
       pwd.length >= 8 &&
@@ -114,6 +116,10 @@ const Auth = () => {
     }
   };
 
+  const handleForgotPassword = () => {
+    window.location.href = "/forgot-password";
+  };
+
   return (
     <div
       className="fixed  inset-0 bg-zinc-900 bg-opacity-40 z-50 "
@@ -161,6 +167,14 @@ const Auth = () => {
                   onClick={() => CALLING_LOGIN_USER(login)}
                 >
                   Login {loader && <Loader />}
+                </button>
+
+                {/* Add Forgot Password Link */}
+                <button
+                  onClick={() => handleForgotPassword()}
+                  className="mt-2 text-sm text-white hover:text-indigo-300"
+                >
+                  Forgot Password?
                 </button>
               </div>
             ) : (
@@ -225,6 +239,7 @@ const Auth = () => {
                 : "Already have an account? Log in"}
             </button>
           </div>
+          {/* Conditionally render Forgot Password component */}
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ import { EmailIcon, FacebookIcon, WhatsappIcon } from "react-share";
 const DOMAIN_URL = process.env.NEXT_PUBLIC_DOMAIN_URL;
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN;
 
-const SingleImage = ({ singleID, setSingleID }) => {
+const SingleImageAllpage = ({ singleID, setSingleID }) => {
   const [like, setLike] = useState(false);
   const [postDetail, setPostDetail] = useState([]);
   const [activeUser, setActiveUser] = useState(false);
@@ -116,24 +116,6 @@ const SingleImage = ({ singleID, setSingleID }) => {
     }
   };
 
-  const CALLING_DELETE = async (postID) => {
-    try {
-      // console.log("this is the active user in the imageCard ", activeUser);
-
-      // console.log("this is the post detail ", postDetail);
-      if (postDetail.user !== activeUser._id) {
-        return alert("Only the Owner of this image can delete  it");
-      }
-      setLoader(true);
-      const response = await DELETE_POST(postID);
-      if (response) {
-        window.location.reload();
-      }
-    } catch (error) {
-      setLoader(false);
-      console.error(error.message);
-    }
-  };
   useEffect(() => {
     CALLING_USER_INFO(singleID);
   }, [reCall]);
@@ -339,15 +321,6 @@ h-auto "
                           <FaRegHeart className="text-xl" />
                         )}
                       </button>
-
-                      {deletePost && (
-                        <button
-                          className="bg-zinc-900 bg-opacity-70 hover:bg-opacity-100 rounded-lg transition-all duration-200 flex items-center justify-center w-12 p-2"
-                          onClick={() => CALLING_DELETE(postDetail?._id)}
-                        >
-                          <MdOutlineDelete className="text-xl" />
-                        </button>
-                      )}
                     </div>
 
                     {/* Download Button */}
@@ -370,4 +343,4 @@ h-auto "
   );
 };
 
-export default SingleImage;
+export default SingleImageAllpage;

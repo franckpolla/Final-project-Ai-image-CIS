@@ -3,12 +3,9 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { HomeLogo, BsCameraReelsFill } from "../Components/SVG/index.js";
-import {
-  Header,
-  GetStarted,
-  SingleImage,
-  Button,
-} from "../Components/index.js";
+import { Header, GetStarted, Button } from "../Components/index.js";
+
+import SingleImageAllpage from "../Components/Global/SingleImageAllpa.jsx";
 import Footer from "../Components/Global/Footer.jsx";
 import { CHECK_AUTH_USER, GET_AI_IMAGES } from "../Utils/index.js";
 import ImageCardHomePage from "../Components/Global/imageCardHomePage.jsx";
@@ -366,7 +363,7 @@ const Index = () => {
       </div>
 
       {singleID && (
-        <SingleImage singleID={singleID} setSingleID={setSingleID} />
+        <SingleImageAllpage singleID={singleID} setSingleID={setSingleID} />
       )}
     </div>
   );

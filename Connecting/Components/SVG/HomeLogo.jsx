@@ -4,7 +4,7 @@ const HomeLogo = () => {
   return (
     <img
       style={{
-        width: "150px",
+        width: "200px",
         height: "auto",
       }}
       src="/assets/Brain_tech.png"

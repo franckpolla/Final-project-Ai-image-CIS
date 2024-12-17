@@ -1,13 +1,14 @@
 import "../styles/globals.css";
-//this is the layout of the main index page
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Cookies from "js-cookie";
-// import Auth from "../../Connecting/Components/Global/Auth.jsx";
-
+import { useRouter } from "next/router"; // Add this import
 import { Auth } from "../Components/index.js";
+
 export default function App({ Component, pageProps }) {
   const [auth, setAuth] = useState(false);
+  const router = useRouter(); // Get the current router
+
   useEffect(() => {
     const token = Cookies.get("token");
     if (token) {
@@ -16,6 +17,13 @@ export default function App({ Component, pageProps }) {
       setAuth(false);
     }
   }, []);
+
+  // Add this condition to prevent Auth from showing on reset-password page
+  const shouldShowAuth =
+    !auth &&
+    router.pathname !== "/reset-password" &&
+    router.pathname !== "/forgot-password";
+
   return (
     <>
       <Head>
@@ -31,7 +39,7 @@ export default function App({ Component, pageProps }) {
           href="/assets/Brain_tech.png"
         />
       </Head>
-      {!auth && <Auth />}
+      {shouldShowAuth && <Auth />}
       <Component {...pageProps} />
     </>
   );

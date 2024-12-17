@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { BsCameraReelsFill } from "../Components/SVG/index.js";
-import {
-  Header,
-  GetStarted,
-  Button,
-  SingleImage,
-} from "../Components/index.js";
+import { Header, GetStarted, Button } from "../Components/index.js";
+import SingleImageAllpage from "../Components/Global/SingleImageAllpa.jsx";
+
 import ImageCardHomePage from "../Components/Global/imageCardHomePage.jsx";
 import { CHECK_AUTH_USER, GET_AI_IMAGES } from "../Utils/index.js";
 import Footer from "../Components/Global/Footer.jsx";
@@ -161,7 +158,7 @@ const Likes = () => {
         </div>
       </div>
       {singleID && (
-        <SingleImage singleID={singleID} setSingleID={setSingleID} />
+        <SingleImageAllpage singleID={singleID} setSingleID={setSingleID} />
       )}
       <div style={{ marginTop: "6rem" }}>
         <Footer />

@@ -25,6 +25,14 @@ const Userschema = new Schema(
       type: Number,
       default: 3,
     },
+    resetPasswordToken: {
+      type: String,
+      default: null,
+    },
+    resetPasswordExpires: {
+      type: Date,
+      default: null,
+    },
 
     // to ref is used to create the relation with the user array
     posts: [

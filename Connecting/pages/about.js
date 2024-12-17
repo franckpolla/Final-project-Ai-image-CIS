@@ -81,15 +81,18 @@ const about = () => {
             style={{
               marginBottom: "44px",
               padding: "100px",
+              textAlign: "center",
             }}
           >
-            In this age of technological advances, the AI image generator is
-            becoming increasingly popular. This technology allows a user, such
-            as an artist, to quickly generate an image from text. The aim of
-            this project by CIS students during the year 2024-2025 is to develop
+            In the age of technical advances, AI image generator is becoming
+            increasingly popular. HAHO AI was created by Computer Information
+            Systems (CIS) students in Near East University as our graduation
+            project (CIS400) during our final year from 2023-2024 (Spring) and
+            submitted in 2024-2025 (Fall). The aim of this project is to develop
             an AI image generator that not only generates images that the user
-            can appreciate, but also differentiates itself from other image
-            generators through its simplicity.
+            can appreciate, but also differentiates ourself from other image
+            generators through our simplicity. HAHO AI comes to you with a
+            wonderful form of experience you have never seen.
           </p>
         </div>
         <div></div>

@@ -4,6 +4,8 @@ import {
   logIn,
   logOut,
   refetch,
+  resetPassword,
+  forgotPassword,
 } from "../controllers/authController.js";
 
 // WE are using router instance to define the different route.
@@ -14,6 +16,8 @@ router.post("/register", register);
 router.post("/login", logIn);
 // Log out user
 router.post("/logout", logOut);
+router.post("/forgot-password", forgotPassword);
+router.post("/reset-password", resetPassword);
 // Fetch current userS
 
 router.get("/refetch", refetch);

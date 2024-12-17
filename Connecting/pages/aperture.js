@@ -18,7 +18,6 @@ import {
   PaymentProssing,
   AIProcessing,
 } from "../Components/index.js";
-
 import {
   CHECK_AUTH_USER,
   IMAGE_GENERATOR_V3,
@@ -157,70 +156,86 @@ const aperture = () => {
         <div className="mb-32">
           <div className="w-screen overflow-x-hidden">
             <div className="flex items-center justify-center w-full mt-8 md:mt-10">
-              <div className="px-2 md:px-10 lg:px-16 flex items-center flex-col max-w-[1300px] w-full">
-                <div className="w-full relative border border-white p-8 rounded-md flex justify-center gap-4 flex-col ">
-                  <Prompt
-                    promptv3={promptv3}
-                    setPromptv3={setPromptv3}
-                    loader={loader}
-                    error={error}
-                    activeUser={activeUser}
-                  />
-                  <PromptInput promptv3={promptv3} setPromptv3={setPromptv3} />
-                  <div className="flex items-center  w-full">
-                    <div className="w-full flex items-center justify-center md:justify-end mt-4 space-x-4">
-                      {activeUser?.credit == 0 ? (
-                        <div
-                          style={{ cursor: "pointer" }}
-                          className="transition-all"
-                        >
-                          <a
-                            href="/account"
-                            className="text-sm text-white bg-gradient-to-t from-indigo-800
+              <div className="px-2 md:px-10 lg:px-16 flex items-center flex-col lg:flex-row w-full">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+                  <div className="w-full ">
+                    <img
+                      style={{
+                        width: "280px",
+                        height: "auto",
+                      }}
+                      src="/assets/Brain_tech.png"
+                      alt="logo image"
+                    />
+                  </div>
+
+                  <div className="w-80 relative border border-white p-4 rounded-md flex justify-center gap-4 flex-col ">
+                    <Prompt
+                      promptv3={promptv3}
+                      setPromptv3={setPromptv3}
+                      loader={loader}
+                      error={error}
+                      activeUser={activeUser}
+                    />
+                    <PromptInput
+                      promptv3={promptv3}
+                      setPromptv3={setPromptv3}
+                    />
+                    <div className="flex items-center  w-full">
+                      <div className="w-full flex items-center justify-center mt-4 space-x-4">
+                        {activeUser?.credit == 0 ? (
+                          <div
+                            style={{ cursor: "pointer" }}
+                            className="transition-all"
+                          >
+                            <a
+                              href="/account"
+                              className="text-sm text-white bg-gradient-to-t from-indigo-800
             via-indigo-600 to-indigo-500 rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70
              "
-                          >
-                            Buy Credit
-                          </a>
-                        </div>
-                      ) : loader ? (
-                        <div className="transition-all ">
-                          <button
-                            className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
+                            >
+                              Buy Credit
+                            </a>
+                          </div>
+                        ) : loader ? (
+                          <div className="transition-all ">
+                            <button
+                              className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
             rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70 cursor-default"
+                            >
+                              <Loader />
+                            </button>
+                          </div>
+                        ) : error ? (
+                          <div
+                            style={{ cursor: "pointer" }}
+                            onClick={() => reload()}
                           >
-                            <Loader />
-                          </button>
-                        </div>
-                      ) : error ? (
-                        <div
-                          style={{ cursor: "pointer" }}
-                          onClick={() => reload()}
-                        >
-                          <button
-                            className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
+                            <button
+                              className="text-sm bg-gradient-to-t from-indigo-900 via-indigo-900 to-indigo-800  
             rounded-full drop-shadow text-md px-8 py-2 transistion-all opacity-70 cursor-default"
+                            >
+                              {error} - Click to Refresh
+                            </button>
+                          </div>
+                        ) : (
+                          <div
+                            style={{ cursor: "pointer", textAlign: "center" }}
+                            className="transition-all flex justify-center items-center"
+                            onClick={() => CLICK_V3(promptv3)}
                           >
-                            {error} - Click to Refresh
-                          </button>
-                        </div>
-                      ) : (
-                        <div
-                          style={{ cursor: "pointer", textAlign: "center" }}
-                          className="transition-all flex justify-center items-center"
-                          onClick={() => CLICK_V3(promptv3)}
-                        >
-                          <button
-                            style={{
-                              marginBottom: "20px",
-                            }}
-                            className="text-xl bg-gradient-to-t from-indigo-900 via-indigo-700 to-indigo-500  
+                            <button
+                              style={{
+                                marginBottom: "20px",
+                              }}
+                              className="text-xl bg-gradient-to-t from-indigo-900 via-indigo-700 to-indigo-500  
             rounded-full drop-shadow  text-white px-10 py-3 text-center transistion-all opacity-100 cursor-pointer"
-                          >
-                            Generate
-                          </button>
-                        </div>
-                      )}
+                            >
+                              Generate
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
