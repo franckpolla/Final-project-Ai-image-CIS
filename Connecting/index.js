@@ -9,6 +9,7 @@ import userRoute from "../Connecting/Api/routes/users.js";
 import path from "path";
 import verifyToken from "../Connecting/Api/middlewares/verifyToken.js";
 import { fileURLToPath } from "url";
+import cors from "cors"; // Add this import
 // C:\Users\PC\Desktop\AI-Image final project\Connecting\config.env
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +22,7 @@ const dev = process.env.NODE_ENV !== "production";
 const nextServer = next({ dev }); //Initializes the Next.js Application: This line creates an instance of the Next.js application by invoking the next function provided by the Next.js framework.
 
 const handle = nextServer.getRequestHandler(); //Retrieves the Default Request Handler: This line obtains a handler function from the Next.js app instance that can process all incoming HTTP requests that are not explicitly handled by your custom server
+
 const app = express();
 
 // Initializes the connection
@@ -34,6 +36,21 @@ async function connectToMongoDB() {
     console.error("Error connecting to MongoDB:", error.message);
   }
 }
+
+// Add CORS configuration - place this before other middleware
+app.use(
+  cors({
+    origin: "*", // Allows all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With",
+      "Accept",
+    ],
+    credentials: true, // Enable credentials (cookies, authorization headers, etc)
+  })
+);
 
 connectToMongoDB();
 // app.use app.use: This method is used to mount middleware functions in an Express application.
