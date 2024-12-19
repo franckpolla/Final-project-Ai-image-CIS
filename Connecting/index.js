@@ -24,6 +24,20 @@ const nextServer = next({ dev }); //Initializes the Next.js Application: This li
 const handle = nextServer.getRequestHandler(); //Retrieves the Default Request Handler: This line obtains a handler function from the Next.js app instance that can process all incoming HTTP requests that are not explicitly handled by your custom server
 
 const app = express();
+// Add CORS configuration - place this before other middleware
+app.use(
+  cors({
+    origin: "*", // Allows all origins
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With",
+      "Accept",
+    ],
+    credentials: true, // Enable credentials (cookies, authorization headers, etc)
+  })
+);
 
 // Initializes the connection
 
@@ -36,21 +50,6 @@ async function connectToMongoDB() {
     console.error("Error connecting to MongoDB:", error.message);
   }
 }
-
-// Add CORS configuration - place this before other middleware
-app.use(
-  cors({
-    origin: "*", // Allows all origins
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "X-Requested-With",
-      "Accept",
-    ],
-    credentials: true, // Enable credentials (cookies, authorization headers, etc)
-  })
-);
 
 connectToMongoDB();
 // app.use app.use: This method is used to mount middleware functions in an Express application.
